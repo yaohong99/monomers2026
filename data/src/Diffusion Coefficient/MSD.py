@@ -30,10 +30,10 @@ def msd(timestep, dotnum, mult, tau_t, dcd_filename):
     startframe = int(numframes / 5)
     freq = dcd.skip_timestep  # freq
     framenum = numframes - startframe
-    print('原子数量是:', numatoms)
+    print('The number of atoms is:', numatoms)
     print('timestep:', timestep)
     print('freq', freq)
-    print('从dcd中第几帧开始取:', startframe)
+    print("Starting frame index extracted from the DCD trajectory:", startframe)
 
     # read in dcd data to list Xdcd
     Xdcd = num_dim * [[[]]]
@@ -50,14 +50,14 @@ def msd(timestep, dotnum, mult, tau_t, dcd_filename):
     msd = [[0 for ii in range(30000)] for jj in range(3)]  # [[0, 0.... 0], [0, 0.... 0], [0, 0.... 0], [0, 0.... 0]]
     MSD = [0] * 30000
     time1 = [0]
-    for dot in range(1, dotnum):  # 画几个点
+    for dot in range(1, dotnum):
 
-        delt_t = dot * mult  # 每个点对应dcd中的20帧
+        delt_t = dot * mult
         time1.append(delt_t * timestep * freq / tau_t)
         for index in range(numatoms):
             Fd = framenum - delt_t
             for n in range(0, Fd):
-                for d in range(3):  # 3维
+                for d in range(3):
                     if (Xdcd[d][n + delt_t][index] - Xdcd[d][n][index]) >= X:
                         msd[d][delt_t] += (Xdcd[d][n + delt_t][index] - Xdcd[d][n][index] - 2 * X) ** 2
                     if (Xdcd[d][n + delt_t][index] - Xdcd[d][n][index]) <= (-1 * X):
@@ -75,14 +75,12 @@ def msd(timestep, dotnum, mult, tau_t, dcd_filename):
     plt.xlabel("t/ps", fontsize=12)
     plt.ylabel("MSD/nm^2")
     plt.title("SELM All Beads Mean Square Displacement")
-    plt.legend()  # 显示上面的label
+    plt.legend()
 
-    # 从文件名中提取基本名称（不包含路径和扩展名）
     base_filename = os.path.splitext(os.path.basename(dcd_filename))[0]
     plt.savefig(f'{base_filename}.jpg')
     plt.show()
 
-    # 输出数据到文本文件，文件名与dcd文件名一致
     with open(f'{base_filename}.txt', "w") as file:
         com = zip(time1, MSD[:dotnum])
         for data in com:
@@ -90,6 +88,4 @@ def msd(timestep, dotnum, mult, tau_t, dcd_filename):
 
     print('done!')
 
-
-# 调用函数时传入DCD文件的路径
 msd(0.005, 41, 1, 1, '1base.dcd')
