@@ -1,4 +1,4 @@
-#### Drift-Diffusion Membrane-Protein Codes
+#### Coarse-Grained Monomers Simulation and Analysis Codes
 
 Simulation codes for "Coarse-Grained modeling of hydrodynamic behavior
 in DNA synthesis monomers".
@@ -12,20 +12,13 @@ cd ./src
 pip install -r requirements.txt
 ```
 
-To test installation run 
-```
-python conc_field_01.py --help 
-```
-
 __Running the Codes__ 
 
 Simulations can be run by using python parameter files found in the 
 ./cases folder for each model.  This is typically of the form
 ```
-cd ../../src
-python conc_field_01.py -p ../cases/<sim-name>/params.py
+cd ../src/Boltzmann Inversion
+python U.py -p ../cases/Boltzmann Inversion/B_S_values.txt
 ```
 
 For more details, see the individual folders.
-
-
