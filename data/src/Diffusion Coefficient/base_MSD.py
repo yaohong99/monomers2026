@@ -19,7 +19,6 @@ def base_MSD(list1, list2, list3, list4, list5, list6, list7, list8, xl, yl, fig
         lista.append(i / 0.08847568569774664)
     plt.scatter(list11, lista, color='r', marker='o', label='A')
 
-    # 绘制散点 C
     list31, listb = [], []
 
     for i in list3:
@@ -28,7 +27,7 @@ def base_MSD(list1, list2, list3, list4, list5, list6, list7, list8, xl, yl, fig
         listb.append(i / 0.08686479867795335)
     plt.scatter(list31, listb, color='b', marker='s', label='C')
 
-    # 绘制散点 T
+    # T
     list51, listf = [], []
 
     for i in list5:
@@ -37,7 +36,7 @@ def base_MSD(list1, list2, list3, list4, list5, list6, list7, list8, xl, yl, fig
         listf.append(i / 0.08652728084774365)
     plt.scatter(list51, listf, color='g', marker='^', label='T')
 
-    # 绘制散点 G
+    # G
     list71, listg = [], []
 
     for i in list7:
@@ -46,11 +45,11 @@ def base_MSD(list1, list2, list3, list4, list5, list6, list7, list8, xl, yl, fig
         listg.append(i / 0.0861359824583352)
     plt.scatter(list71, listg, color='m', marker='D', label='G')
 
-    # 直线方程函数
+
     def f_1(x, A, B):
         return A * x + B
 
-    # 直线拟合与绘制
+
     A1, B1 = optimize.curve_fit(f_1, list11, lista)[0]
     x1 = np.arange(0, 2, 0.2)
     y1 = A1 * x1 + B1
@@ -71,7 +70,7 @@ def base_MSD(list1, list2, list3, list4, list5, list6, list7, list8, xl, yl, fig
     y4 = A4 * x4 + B4
     plt.plot(x4, y4, "m")
 
-    # 图像细节设置
+    
     plt.ylabel(yl, fontdict={'family': 'Times New Roman', 'size': 12})
     plt.xlabel(xl, fontdict={'family': 'Times New Roman', 'size': 12})
     plt.xticks(fontproperties='Times New Roman', size=12)
