@@ -1,0 +1,25 @@
+[ moleculetype ]
+; Name            nrexcl
+CG_C2                    1 
+
+[ atoms ]
+; residue: 残基编号，如果不包含残基信息，通常为 0
+;cgnr: 原子所属的电荷组编号
+; Index   type   residue   resname   atom   cgnr   charge   mass
+1             B         0      CG_C2     B1      1       0.0    214.0   
+2             S         0      CG_C2     S2      2       0.0     83.0   
+3             P         0      CG_C2     P3      3       0.0    217.0   
+4             D         0      CG_C2     D4      4       0.0    319.0   
+
+[ bonds ]
+; atom_i  atom_j  functype    r0         k
+1           2        1       0.6714      8670.3516
+2           3        1       0.4675      2068.7778
+2           4        1       0.4882      4646.0747
+
+[ angles ]
+; atom_i atom_j atom_k functype a0 (Deg.) k (kJ/mol/rad^2)
+1 2 4 1                    119.5621	49.4241
+1 2 3 1                    135.4389	35.5738
+3 2 4 1                    100.2557	49.3712
+
