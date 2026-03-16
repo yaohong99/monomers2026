@@ -10,7 +10,7 @@ This repository contains the forcefield parameter files and topology files requi
 |------|-------------|
 | `AN.gro` | Acetonitrile molecule coordinate file |
 | `AN.top` / `AN.itp` | Acetonitrile topology and forcefield parameters |
-| `C2.gro` | Nucleobase monomer coordinate file |
+| `C.gro` | Nucleobase monomer coordinate file |
 | `topol.top` | System topology file (monomer + solvent) |
 | `em.mdp` | Energy minimization parameters |
 | `eq.mdp` | NPT equilibration parameters |
