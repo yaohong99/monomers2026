@@ -6,6 +6,7 @@ in DNA synthesis monomers".
 __Installation__
 
 To install use 'pip' and 'python' version 12.1 or greater 
+
 To install use LAMMPS version 2024.8
 
 ```
