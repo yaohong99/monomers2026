@@ -13,9 +13,6 @@ To install use LAMMPS version 2024.8
 cd ./src
 pip install -r requirements.txt
 ```
-```
-cd ./data/cases/LAMMPS
-```
 
 __Running the Codes__ 
 
@@ -27,6 +24,7 @@ python U.py -p ../cases/Boltzmann Inversion/B_S_values.txt
 ```
 
 ```
+cd ./data/cases/LAMMPS
 CUDA_VISIBLE_DEVICES=0 nohup selm_cuda > /dev/null 2>&1 &
 nohup ./lmp_mpi -in C.in  >log.txt &
 ```
