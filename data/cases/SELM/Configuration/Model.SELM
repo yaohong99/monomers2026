@@ -1,0 +1,12 @@
+#Required Parameters
+mu  752.768
+rho 493.936
+KB  0.008313
+T  298.15
+EulerianType Eulerian_Period       
+LagrangianType Lagrangian_LAMMPS   
+nsteps 20000000               
+#Optional Parameters
+flagStochasticDriving 1       
+SELM_Seed 7324         
+numMeshPtsPerDir 24 24 24    
