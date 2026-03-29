@@ -49,14 +49,13 @@ This will generate the executable selm_cuda.
 
 To run a simulation, copy the compiled executable to your test directory (e.g., `./cases/SELM/test`).
 
-### Running the CUDA Version
 ```bash
 CUDA_VISIBLE_DEVICES=0 nohup selm_cuda > /dev/null 2>&1 &
 ```
 
-### Running the Codes 
+### Results of the paper 
 
-Simulations can be run by using python parameter files found in the 
+Results can be run by using python parameter files found in the 
 ./cases folder for each model.  This is typically of the form
 ```
 cd ../src/Boltzmann Inversion
