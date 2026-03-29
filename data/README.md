@@ -35,18 +35,26 @@ The following dependencies are required. Examples are provided for Arch Linux, b
 
 ### Building the Project
 
-1.  Navigate to the desired implementation directory: `src/mpi` for CPU or `src/cuda` for GPU.
-2.  Open the `Makefile` and update the `LAMMPS_PATH` variable to point to your LAMMPS installation directory.
-3.  Run the build command:
+1.  Open the `Makefile` and update the `LAMMPS_PATH` variable to point to your LAMMPS installation directory.
+2.  Run the build command:
     ```bash
     make
     ```
 
 ---
 
+This will generate the executable selm_cuda.
 
+## Usage
 
-__Running the Codes__ 
+To run a simulation, copy the compiled executable to your test directory (e.g., `./cases/SELM/test`).
+
+### Running the CUDA Version
+```bash
+CUDA_VISIBLE_DEVICES=0 nohup selm_cuda > /dev/null 2>&1 &
+```
+
+### Running the Codes 
 
 Simulations can be run by using python parameter files found in the 
 ./cases folder for each model.  This is typically of the form
@@ -73,16 +81,6 @@ python compare_MSD.py -p ../cases/SELM/compare_period_2MSD/1base.txt
 ```
 cd ../src/diffuison coefficient
 python MSD.py -p ../cases/SELM/Diffuison Coefficient/1base.dcd
-```
-
-
-## Usage
-
-To run a simulation, copy the compiled executable to your test directory (e.g., `./cases/SELM/test`).
-
-### Running the CUDA Version
-```bash
-./selm_cuda
 ```
 
 For more details, see the individual folders.
