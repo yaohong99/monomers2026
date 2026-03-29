@@ -18,7 +18,7 @@ To install use LAMMPS version 2024.8
 
 ### Prerequisites
 
-The following dependencies are required. Examples are provided for Arch Linux, but these can be adapted for other distributions (e.g., Ubuntu/CentOS).
+The following dependencies are required. Examples are provided for Arch Linux, but these can be adapted for other distributions (e.g., ./src/selm_cuda).
 
 * **CUDA Toolkit**: Required for the GPU-accelerated version.
     ```bash
