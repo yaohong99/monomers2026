@@ -7,12 +7,44 @@ __Installation__
 
 To install use 'pip' and 'python' version 12.1 or greater 
 
-To install use LAMMPS version 2024.8
-
 ```
 cd ./src
 pip install -r requirements.txt
 ```
+
+To install use LAMMPS version 2024.8
+
+## Installation
+
+### Prerequisites
+
+The following dependencies are required. Examples are provided for Arch Linux, but these can be adapted for other distributions (e.g., Ubuntu/CentOS).
+
+* **CUDA Toolkit**: Required for the GPU-accelerated version.
+    ```bash
+    sudo pacman -S cuda
+    ```
+* **LAMMPS**: Must be built from source with specific packages enabled.
+    ```bash
+    wget https://download.lammps.org/tars/lammps-stable.tar.gz
+    tar -xzf lammps-stable.tar.gz
+    cd lammps-22Jul2025/src/
+    make yes-molecule yes-extra-dump
+    make mpi -j4
+    ```
+
+### Building the Project
+
+1.  Navigate to the desired implementation directory: `src/mpi` for CPU or `src/cuda` for GPU.
+2.  Open the `Makefile` and update the `LAMMPS_PATH` variable to point to your LAMMPS installation directory.
+3.  Run the build command:
+    ```bash
+    make
+    ```
+
+---
+
+
 
 __Running the Codes__ 
 
@@ -41,6 +73,16 @@ python compare_MSD.py -p ../cases/SELM/compare_period_2MSD/1base.txt
 ```
 cd ../src/diffuison coefficient
 python MSD.py -p ../cases/SELM/Diffuison Coefficient/1base.dcd
+```
+
+
+## Usage
+
+To run a simulation, copy the compiled executable to your test directory (e.g., `./cases/SELM/test`).
+
+### Running the CUDA Version
+```bash
+./selm_cuda
 ```
 
 For more details, see the individual folders.
