@@ -28,7 +28,7 @@ The following dependencies are required. Examples are provided for Arch Linux, b
     ```bash
     wget https://download.lammps.org/tars/lammps-stable.tar.gz
     tar -xzf lammps-stable.tar.gz
-    cd lammps-22Jul2025/src/
+    cd lammps-xx/src/
     make yes-molecule yes-extra-dump
     make mpi -j4
     ```
@@ -41,8 +41,6 @@ The following dependencies are required. Examples are provided for Arch Linux, b
     make
     ```
 
----
-
 This will generate the executable selm_cuda.
 
 ## Usage
@@ -52,6 +50,7 @@ To run a simulation, copy the compiled executable to your test directory (e.g., 
 ```bash
 CUDA_VISIBLE_DEVICES=0 nohup selm_cuda > /dev/null 2>&1 &
 ```
+---
 
 ### Results of the paper 
 
