@@ -24,9 +24,23 @@ python U.py -p ../cases/Boltzmann Inversion/B_S_values.txt
 ```
 
 ```
-cd ./data/cases/LAMMPS
-CUDA_VISIBLE_DEVICES=0 nohup selm_cuda > /dev/null 2>&1 &
-nohup ./lmp_mpi -in C.in  >log.txt &
+cd ../src/compare_168base
+python compare_MSD.py -p ../cases/SELM/compare_168base/dirichlet_168base_X.txt
+```
+
+```
+cd ../src/compare_dirichlet_2MSD
+python compare_MSD.py -p ../cases/SELM/compare_dirichlet_2MSD/16base_X.txt
+```
+
+```
+cd ../src/compare_period_2MSD
+python compare_MSD.py -p ../cases/SELM/compare_period_2MSD/1base.txt
+```
+
+```
+cd ../src/diffuison coefficient
+python MSD.py -p ../cases/SELM/Diffuison Coefficient/1base.dcd
 ```
 
 For more details, see the individual folders.
