@@ -1,0 +1,63 @@
+# =========================================================================
+# LAMMPS main parameter file and script                                    
+#                                                                          
+# Generated using the SELM Builder GUI by Paul J. Atzberger.               
+#                                                                          
+# =========================================================================
+
+# == Setup variables for the script 
+
+variable dumpfreq         equal    10
+variable restart          equal    0
+variable neighborSkinDist equal    1.0 # distance for bins beyond force cut-off (1.0 = 1.0 Ang for units = real) 
+variable baseFilename     universe Model
+
+# == Setup the log file
+# log         ${baseFilename}.LAMMPS_logFile
+
+# == Setup style of the run
+
+# type of units to use in the simulation
+units       si
+
+# indicates possible types allowed for interactions between the atoms
+atom_style  angle 
+
+# indicates possible types allowed for bonds between the atoms 
+bond_style none 
+
+
+# indicates possible types allowed for bond angles between the atoms 
+angle_style  none 
+
+# indicates type of boundary conditions in each direction (p = periodic) 
+boundary p p p 
+
+read_data ${baseFilename}.LAMMPS_read_data # file of atomic coordinates and topology
+#velocity all set 1.0 NULL NULL sum no units box  # initialize all atomic velocities to be (1, 0, 0)
+
+# == Interactions 
+
+pair_style none 
+atom_modify sort 1000 ${neighborSkinDist}          # setup sort data explicitly since no interactions to set this data. 
+
+# == Setup neighbor list distance
+neighbor ${neighborSkinDist} bin                   # first number gives a distance beyond the force cut-off ${neighborSkinDist}
+
+# == Setup initial velocity to be one
+velocity all set 1.0 0.0 0.0 units box
+
+# == Setup the SELM integrator
+# fix 1 all SELM ${baseFilename}.SELM_params
+
+# == Setup output data write to disk
+#dump        1 all dcd ${dumpfreq} ${baseFilename}_LAMMPS_atomCoords.dcd
+#dump_modify 1 unwrap yes                   # indicates for periodic domains that unwrapped coordinate should be given
+
+# == Run the simulation
+timestep 0.00001
+# run      50000 upto
+
+# == Write restart data
+#write_restart ${baseFilename}.LAMMPS_restart_data
+

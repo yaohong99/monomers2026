@@ -1,0 +1,17 @@
+#Required Parameters
+mu 602.2141989999999
+rho 602.2141989999999
+KB 0.0083144721451
+T 298.15
+EulerianType Eulerian_Period #Only this type is supported.
+LagrangianType Lagrangian_LAMMPS #Only this type is supported.
+nsteps 1000000 #please remove the run and fixSELM statements from the LAMMPS input script.
+
+#Optional Parameters
+flagStochasticDriving 0 #If the parameter is not provided, the default value is 0.
+SELM_Seed 123456 #If flagStochasticDriving is 1, but the SELM_Seed parameter is not provided, then SELM_Seed is initialized using the system's random seed.
+numMeshPtsPerDir 30 30 30 #In this program, it is assumed that the DeltaX is the same in each dimension, therefore numMeshPtsPerDir should be the same in every dimension.
+saveSkipSimulationData 30
+writeParticalV 1
+writeParticalX 1
+writeParticalF 1
